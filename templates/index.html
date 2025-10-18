@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Scrap</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            font-size: 62.5%;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: var(--color-background);
+        }
+
+        :root {
+            /* Colores base */
+            --color-background: #F9FAFB;
+            --color-surface: #FFFFFF;
+            --color-border: #E5E7EB;
+
+            /* Texto */
+            --color-text-primary: #1F2937;
+            --color-text-secondary: #6B7280;
+
+            /* Colores principales */
+            --color-primary: #2563EB;
+            --color-primary-hover: #1E40AF;
+            --color-secondary: #3B82F6;
+            --color-accent: #F59E0B;
+
+            /* Estados */
+            --color-success: #10B981;
+            --color-success-bg: #D1FAE5;
+            --color-success-text: #065F46;
+
+            --color-error: #EF4444;
+            --color-error-bg: #FEE2E2;
+            --color-error-text: #991B1B;
+
+            --color-warning: #FBBF24;
+            --color-warning-bg: #FEF3C7;
+            --color-warning-text: #92400E;
+
+            /* Links */
+            --color-link: #2563EB;
+            /* Azul primario */
+            --color-link-hover: #1E40AF;
+            /* Azul más oscuro para hover */
+            --color-link-visited: #6B21A8;
+            /* Morado para enlaces visitados */
+        }
+
+
+
+
+        /* Header Start */
+
+        header {
+            width: 100%;
+            height: 80px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+        }
+
+        .header__ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .header__ul li {
+            overflow: hidden;
+        }
+
+        .header__link {
+            color: var(--color-link);
+            font-size: 2rem;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .header__title a{
+            text-decoration: none
+        }
+
+        h1 {
+            color: var(--color-text-primary);
+            font-size: 3rem;
+        }
+
+        .header__link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -200px;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-link);
+            transition: .5s;
+        }
+
+        .header__link:hover::before {
+            left: 0;
+        }
+
+        /* Header End */
+
+        /* Main Start */
+
+        .hero {
+            width: 100%;
+            padding: 50px 200px;
+        }
+
+        .hero__title {
+            color: var(--color-text-primary);
+            text-align: center;
+            font-size: 4rem;
+            line-height: 4.8rem;
+            margin-bottom: 40px;
+        }
+
+        .hero__form {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero__form form {
+            display: flex;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid var(--color-link);
+        }
+
+        .hero__form input {
+            padding: 8px 24px;
+            border: none;
+            color: var(--color-link);
+            outline: none;
+        }
+
+        .hero__form input::placeholder {
+            font-size: 1.6rem;
+            color: var(--color-primary-hover);
+        }
+
+        .hero__form input:focus {
+            border: none;
+        }
+
+        .hero__action-container span {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: url("https://i.postimg.cc/763WbSnW/search.png") center / cover no-repeat;
+        }
+
+        .hero__form button {
+            border: none;
+            cursor: pointer;
+        }
+
+        .hero__action-container {
+            background-color: var(--color-secondary);
+            padding: 8px;
+
+        }
+
+        /* Hero End */
+
+
+        /* Prices Start */
+
+        .prices {
+            height: 300px;
+        }
+
+        .prices>h2 {
+            text-align: center;
+            font-size: 4rem;
+            margin-bottom: 40px;
+        }
+
+        .prices__container {
+            display: flex;
+            height: 100%;
+            width: 80%;
+            margin: 40px auto;
+        }
+
+        .prices__text {
+            width: 100%;
+            height: 70%;
+            text-align: center;
+            border-right: 1px solid var(--color-text-secondary);
+        }
+
+        .prices__text:nth-child(3) {
+            border: none;
+        }
+
+        .prices__text h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .prices__text p {
+            font-size: 2rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* Prices End */
+
+        /* Products Start */
+
+        .product {
+            width: 80%;
+            height: 300px;
+            margin: 40px auto;
+            display: flex;
+            border-radius: 12px;
+            overflow: hidden;
+            color: var(--color-text-primary);
+            border: 1px solid var(--color-text-secondary);
+        }
+
+        .producto img {
+            height: 100%;
+            width: 40%;
+            object-fit: cover;
+        }
+
+        .product__text {
+            margin: 40px;
+        }
+
+        .product__text h2 {
+            font-size: 3rem;
+        }
+
+        .product__text p {
+            font-size: 1.8rem;
+        }
+
+        .product__text * {
+            margin-bottom: 30px;
+        }
+
+        /* Product End */
+
+        /* About Start */
+
+        .about__container {
+            width: 80%;
+            padding: 40px 0;
+            margin: auto;
+        }
+
+        .about__container h2 {
+            font-size: 4rem;
+            color: var(--color-text-primary);
+            margin-bottom: 20px;
+        }
+
+        .about__container p {
+            color: var(--color-text-primary);
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+        
+        .about__container strong {
+            color: var(--color-link);
+            font-weight: bold;
+        }
+        
+        /* About End */
+
+        /* Contact Start */
+
+        .contact{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 80%;
+            height: 500px;   
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .contact img{
+            width: 100%;
+        }
+
+        .contact form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact form input, .contact form textarea{
+            padding: 10px 30px;
+            border: none;
+            outline: none;
+            color: var(--color-text-primary);
+            font-size: 1.6rem;
+        }
+
+        .contact form textarea{
+            resize: none;
+        }
+
+        .contact form button{
+            padding: 12px 16px;
+            border: none;
+            font-size: 1.8rem;
+            font-weight: bold;
+            background-color: var(--color-success-bg);
+            color: var(--color-success-text);
+            width: auto;
+            align-self: center;
+        }
+
+        /* Contact End */
+
+        /* Footer Start */
+
+        footer {
+            width: 100%;
+            padding: 50px 0;
+            background-color: var(--color-text-primary);
+            color: var(--color-text-secondary);
+        }
+
+        footer .footer__container {
+            width: 80%;
+            margin: auto;
+            display: flex;
+        }
+
+        footer .footer__links,
+        .footer__copy {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-weight: bold;
+        }
+
+        .footer__links{
+            justify-content: flex-start;
+        }
+
+        .footer__links li {
+            margin-bottom: 5px;
+            list-style: none;
+        }
+
+        .footer__links a {
+            font-size: 1.6rem;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        .footer__links a:hover{
+            color: #fff;
+        }
+
+        .footer__copy {
+            font-size: 1.6rem;
+        }
+
+        /* Footer End */
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header__title">
+            <span></span>
+            <a href="index.html"><h1>Free Scrap</h1></a>
+        </div>
+        <nav>
+            <ul class="header__ul">
+                <li><a class="header__link" href="#">Inicio</a></li>
+                <li><a class="header__link" href="#about">Sobre Free Scrap</a></li>
+                <li><a class="header__link" href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h2 class="hero__title">Web Scrapping <br> para <br> Mercado Libre</h2>
+            <div class="hero__form">
+                <form action="{{url_for('linkForm')}}" method="post">
+                    <input type="text" name="link" placeholder="Ingrese el link...">
+                    <button type="submit">
+                        <div class="hero__action-container">
+                            <span></span>
+                        </div>
+                    </button>
+                </form>
+            </div>
+        </section>
+        <section class="prices">
+            <h2>Precios</h2>
+            <div class="prices__container">
+                <div class="prices__text">
+                    <h2>Menor</h2>
+                    <p>${{ menor }}</p>
+                </div>
+                <div class="prices__text">
+                    <h2>Promedio</h2>
+                    <p>${{ promedio }}</p>
+                </div>
+                <div class="prices__text">
+                    <h2>Mayor</h2>
+                    <p>${{ mayor }}</p>
+                </div>
+            </div>
+        </section>
+        <section class="products">
+            {% for producto in productos %}
+            <div class="product">
+                <img src="{{ producto.image }}" alt="{{ producto.title }}" loading="lazy">
+                <div class="product__text">
+                    <h2>{{ producto.title }}</h2>
+                    <p>Precio: ${{ "{:,}".format(producto.price).replace(",", ".") }}</p>
+                    <p>Estrellas: {{ producto.stars }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+        <section class="about" id="about">
+            <div class="about__container">
+                <h2>Sobre Free Scrap</h2>
+                <p><strong>Free Scrap</strong> es una herramienta de Web Scrapping orientada al sitio de Mercado Libre
+                    que
+                    recolecta y analiza los datos encontrados del link proporcionado por el usuario.</p>
+                <p>Diseñada para facilitar y automatizar procesos repititivos al momento de investigar un protucto de
+                    interes.</p>
+            </div>
+        </section>
+        <section class="contact" id="contact">
+            <img src="https://i.postimg.cc/BnhsnfnK/code.jpg" alt="Code image" loading="lazy">
+            <form action="index.html">
+                <input type="text" placeholder="Jhon">
+                <input type="text" placeholder="Doe">
+                <input type="email" id="email" placeholder="user@example.com">
+                <textarea name="" id="description" rows="5" cols="33" placeholder="Descripción"></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer__container">
+            <div class="footer__links">
+                <ul>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Na Text</a></li>
+                    <li><a href="#">Na Text</a></li>
+                    <li><a href="#">Na Text</a></li>
+                </ul>
+            </div>
+            <div class="footer__copy">
+                <p>© 2025 Free Scrap | Creado por Kevin Perdomo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
